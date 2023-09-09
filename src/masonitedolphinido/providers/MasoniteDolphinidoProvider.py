@@ -19,8 +19,5 @@ class MasoniteDolphinidoProvider(PackageProvider):
             RecogRadioCommand
         )
 
-    def register(self):
-        super().register()
-
     def boot(self):
         pass
