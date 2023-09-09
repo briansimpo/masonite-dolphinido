@@ -11,12 +11,12 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version="0.0.1",
     package_dir={"": "src"},
-    description="Audio Fingerprint and Tracking for Masonite",
+    description="Dolphinido Audio Fingerprint and Tracking for Masonite",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
     # The project"s main homepage.
-    url="https://github.com/briansimpo/dolphinido-masonite",
+    url="https://github.com/briansimpo/masonite-dolphinido",
 
     # Author details
     author="Brian Simpokolwe",
