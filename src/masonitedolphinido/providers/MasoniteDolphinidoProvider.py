@@ -1,11 +1,11 @@
 from masonite.packages import PackageProvider
 from masonitedolphinido.commands import *
 
-class DolphinidoProvider(PackageProvider):
+class MasoniteDolphinidoProvider(PackageProvider):
 
     def configure(self):
-        self.root("dolphinido")\
-        .name("dolphinido")\
+        self.root("masonitedolphinido")\
+        .name("masonitedolphinido")\
         .config("config/fingerprint.py", publish=True)\
         .migrations(
             "migrations/create_audios_table.py", 
