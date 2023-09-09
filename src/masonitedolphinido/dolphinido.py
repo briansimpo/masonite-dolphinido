@@ -85,3 +85,11 @@ class Dolphinido:
 
     def find_audio(self, audio_id):
         return self.audios.get_by_id(audio_id)
+    
+    def audio_exists(self, audio_file):
+        hash = AudioFile.get_hash(audio_file)
+        audio = self.audios.get_by_hash(hash)
+        if audio:
+            return True
+        else:
+            return False
