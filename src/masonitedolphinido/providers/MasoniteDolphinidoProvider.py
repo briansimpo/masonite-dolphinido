@@ -10,14 +10,15 @@ class MasoniteDolphinidoProvider(PackageProvider):
         .migrations(
             "migrations/create_audios_table.py", 
             "migrations/create_audio_fingerprints_table.py"
-        )\
-        .commands(
-            FingerprintCommand,
-            RadioCommand,
-            RecogFileCommand,
-            RecogMicCommand,
-            RecogRadioCommand
         )
-
+    
+    def register(self):
+        self.application.make('commands')\
+        .add(FingerprintCommand())\
+        .add(RadioCommand())\
+        .add(RecogFileCommand())\
+        .add(RecogMicCommand())\
+        .add(RecogRadioCommand())
+    
     def boot(self):
         pass
