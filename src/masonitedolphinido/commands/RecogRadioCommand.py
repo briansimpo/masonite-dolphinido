@@ -1,5 +1,5 @@
 from masonite.commands import Command
-from dolphinido import Dolphinido
+from masonitedolphinido import Dolphinido
 from masonitedolphinido.helpers import output
 import time
 
