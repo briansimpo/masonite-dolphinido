@@ -3,7 +3,7 @@
 ## Installation
 
 ````
-pip install masonite-dolp
+pip install masonite-dolphinido
 ````
 
 ## Usage 

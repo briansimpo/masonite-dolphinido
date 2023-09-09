@@ -1,6 +1,6 @@
 from masonite.commands import Command
 from dolphinido import Dolphinido
-from dolphinido.helpers import output
+from masonitedolphinido.helpers import output
 import time
 
 class RecogRadioCommand(Command):

@@ -4,12 +4,12 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="dolphinido-masonite",
+    name="masonite-dolphinido",
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="0.0.1",
+    version="1.0.0",
     package_dir={"": "src"},
     description="Dolphinido Audio Fingerprint and Tracking for Masonite",
     long_description=long_description,
@@ -24,6 +24,11 @@ setup(
 
     # Choose your license
     license="MIT",
+
+    # If your package should include things you specify in your MANIFEST.in file
+    # Use this option if your package needs to include files that are not python files
+    # like html templates or css files
+    include_package_data=True,
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -65,7 +70,18 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    packages=["dolphinido"],
+    packages=[
+        "masonitedolphinido",
+        "masonitedolphinido/audiofile",
+        "masonitedolphinido/commands",
+        "masonitedolphinido/config",
+        "masonitedolphinido/fingerprint",
+        "masonitedolphinido/models",
+        "masonitedolphinido/providers",
+        "masonitedolphinido/radio",
+        "masonitedolphinido/recognition",
+        "masonitedolphinido/recorder",
+    ],
 
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip"s
@@ -73,5 +89,15 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
         "masonite>=4,<5",
+        "attr~=0.3.2",
+        "attrs~=23.1",
+        "numpy~=1.25.0",
+        "matplotlib~=3.7.1",
+        "scipy~=1.10.1",
+        "termcolor~=2.3.0",
+        "pyaudio~=0.2.13",
+        "pydub~=0.25.1",
+        "pyrtlsdr~=0.3.0 ",
+        "pyrtlsdrlib~=0.0.2",
     ]
 )

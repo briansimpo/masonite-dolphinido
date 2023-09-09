@@ -1,9 +1,9 @@
-from dolphinido.config import fingerprint as config
-from dolphinido.models import Audio, AudioFingerprint
-from dolphinido.audiofile import AudioFile
-from dolphinido.fingerprint import Fingerprint
-from dolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
-from dolphinido.radio import Radio
+from masonitedolphinido.config import fingerprint as config
+from masonitedolphinido.models import Audio, AudioFingerprint
+from masonitedolphinido.audiofile import AudioFile
+from masonitedolphinido.fingerprint import Fingerprint
+from masonitedolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
+from masonitedolphinido.radio import Radio
 
 class Dolphinido:
 

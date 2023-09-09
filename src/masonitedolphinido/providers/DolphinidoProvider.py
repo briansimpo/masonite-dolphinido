@@ -1,5 +1,5 @@
 from masonite.packages import PackageProvider
-from dolphinido.commands import *
+from masonitedolphinido.commands import *
 
 class DolphinidoProvider(PackageProvider):
 

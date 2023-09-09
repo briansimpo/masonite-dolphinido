@@ -1,4 +1,4 @@
-from dolphinido.config import fingerprint as config
+from masonitedolphinido.config import fingerprint as config
 from .AudioMatch import AudioMatch
 
 class BaseRecognizer(object):

@@ -1,4 +1,4 @@
-from dolphinido.recorder import AudioRecorder
+from masonitedolphinido.recorder import AudioRecorder
 from .BaseRecognizer import BaseRecognizer
 
 class MicrophoneRecognizer(BaseRecognizer):

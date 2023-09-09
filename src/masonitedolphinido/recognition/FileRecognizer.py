@@ -1,4 +1,4 @@
-from dolphinido.audiofile import AudioFile
+from masonitedolphinido.audiofile import AudioFile
 from .BaseRecognizer import BaseRecognizer
 
 
