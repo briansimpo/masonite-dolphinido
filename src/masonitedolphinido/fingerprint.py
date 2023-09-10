@@ -5,13 +5,10 @@ from typing import List
 from scipy.ndimage import maximum_filter
 from scipy.ndimage import (generate_binary_structure, iterate_structure, binary_erosion)
 from operator import itemgetter
-from masonitedolphinido.config import fingerprint as config
-
+from dolphinido import settings as config
 
 class Fingerprint:
-    IDX_FREQ_I = 0
-    IDX_TIME_J = 1
-
+    
     def fingerprint(self, samples: List[int],
                             Fs=config.DEFAULT_FS,
                             wsize=config.DEFAULT_WINDOW_SIZE,
@@ -83,12 +80,12 @@ class Fingerprint:
                 if (i + j) < len(peaks):
 
                     # take current & next peak frequency value
-                    freq1 = peaks[i][Fingerprint.IDX_FREQ_I]
-                    freq2 = peaks[i + j][Fingerprint.IDX_FREQ_I]
+                    freq1 = peaks[i][config.IDX_FREQ_I]
+                    freq2 = peaks[i + j][config.IDX_FREQ_I]
 
                     # take current & next -peak time offset
-                    t1 = peaks[i][Fingerprint.IDX_TIME_J]
-                    t2 = peaks[i + j][Fingerprint.IDX_TIME_J]
+                    t1 = peaks[i][config.IDX_TIME_J]
+                    t2 = peaks[i + j][config.IDX_TIME_J]
 
                     # get diff of time offsets
                     t_delta = t2 - t1

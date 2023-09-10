@@ -1,9 +1,13 @@
-from masonitedolphinido.config import fingerprint as config
-from masonitedolphinido.models import Audio, AudioFingerprint
-from masonitedolphinido.audiofile import AudioFile
-from masonitedolphinido.fingerprint import Fingerprint
-from masonitedolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
-from masonitedolphinido.radio import Radio
+import pickle
+from pyaudioreader.audiofile import AudioFile
+from pysdrradio.radio import Radio
+from tinytag import TinyTag
+from dolphinido import settings as config
+from dolphinido.models import Audio, AudioFingerprint
+from dolphinido.fingerprint import Fingerprint
+from dolphinido.audiometa import Audiometa
+from dolphinido.exceptions import AudioDuplicate
+from dolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
 
 class Dolphinido:
 
@@ -17,39 +21,38 @@ class Dolphinido:
         if self.limit == -1:
             self.limit = None
 
-    def radio(self):
+    def radio(self)-> Radio: 
         radio = Radio()
         return radio
 
     def create_audio(self, audio_file, audio_id=None):
-        audio_hash = AudioFile.get_hash(audio_file)
+        hash = AudioFile.get_hash(audio_file)
+        audiotag = TinyTag.get(audio_file)
+        metadata = self.__encode_audio_tag(audiotag)
+
+        audio = self.audios.get_by_hash(hash)
+        if audio:
+            raise AudioDuplicate
 
         if audio_id:
-            audio = self.audios.create({
-                "id": audio_id,
-                "hash_id": audio_hash
-            })   
+            audio = self.audios.create({"id": audio_id, "hash": hash, "metadata": metadata})   
         else:
-            audio = self.audios.create({
-                "hash_id": audio_hash
-            })
+            audio = self.audios.create({"hash": hash, "metadata": metadata})
 
-        hash_count = self.create_fingerprint(audio_file)
-
-        audio.update_hash_count(hash_count)
-
+        hashcount = self.create_fingerprint(audio_file)
+        audio.update_hash_count(hashcount)
         return audio
 
     def create_fingerprint(self, audio_file):
         hash = AudioFile.get_hash(audio_file)
         audio = self.audios.get_by_hash(hash)
-        hash_count = 0
+        hashcount = 0
 
-        if audio and audio.hash_count is None:
+        if audio and audio.hashcount is None:
             fingerprints = self.fingerprint_file(audio_file) 
-            hash_count = len(fingerprints)
+            hashcount = len(fingerprints)
             self.fingerprints.insert(audio, fingerprints)
-        return hash_count
+        return hashcount
         
     def fingerprint_file(self, audio_file, limit=None):
         if limit is None:
@@ -68,9 +71,9 @@ class Dolphinido:
         fingerprints = self.fingerprint.fingerprint(samples)
         return fingerprints
     
-    def recognize_file(self, file_path):
+    def recognize_file(self, audio_file):
         recognizer = FileRecognizer(self)
-        return recognizer.recognize(file_path)
+        return recognizer.recognize(audio_file)
 
     def recognize_recording(self, seconds):
         recognizer = MicrophoneRecognizer(self)
@@ -84,12 +87,27 @@ class Dolphinido:
         return self.fingerprints.match(fingerprints)
 
     def find_audio(self, audio_id):
-        return self.audios.get_by_id(audio_id)
+        audio = self.audios.get_by_id(audio_id)
+        payload = audio.metadata
+        audiotag = self.__decode_audio_tag(payload)
+        audio.metadata = audiotag
+        return audio
     
-    def audio_exists(self, audio_file):
-        hash = AudioFile.get_hash(audio_file)
-        audio = self.audios.get_by_hash(hash)
-        if audio:
-            return True
-        else:
-            return False
+    def __encode_audio_tag(self, audiotag: TinyTag):
+        audiometa = Audiometa(
+            title=audiotag.title,
+            artist=audiotag.artist,
+            album=audiotag.album,
+            genre=audiotag.genre,
+            year=audiotag.year,
+            filesize=audiotag.filesize,
+            duration=audiotag.duration,
+            bitrate=audiotag.bitrate,
+        )
+        payload = pickle.dumps({"audiometa": audiometa })
+        return payload
+    
+    def __decode_audio_tag(self, payload):
+        unserialized = pickle.loads(payload)
+        audiotag = unserialized["audiometa"]
+        return audiotag

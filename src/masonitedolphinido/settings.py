@@ -1,12 +1,6 @@
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-# FINGERPRINTS CONFIG:
-
-FINGERPRINT_LIMIT = os.getenv("FINGERPRINT_LIMIT", None)
-
+# The number of fingerprints to generate on any given audio samples
+FINGERPRINT_LIMIT =  None
 
 # This is used as connectivity parameter for scipy.generate_binary_structure function. This parameter
 # changes the morphology mask when looking for maximum peaks on the spectrogram matrix.
@@ -60,3 +54,9 @@ FINGERPRINT_REDUCTION = 20
 
 # Number of results being returned for file recognition
 TOPN = 2
+
+# Peak frequency value
+IDX_FREQ_I = 0
+
+# Peak time offset
+IDX_TIME_J = 1
