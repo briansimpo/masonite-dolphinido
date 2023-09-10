@@ -1,1 +1,1 @@
-from .MasoniteDolphinidoProvider import MasoniteDolphinidoProvider
+from .DolphinidoProvider import DolphinidoProvider
