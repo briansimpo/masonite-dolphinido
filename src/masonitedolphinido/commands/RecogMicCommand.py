@@ -1,5 +1,5 @@
 from masonite.commands import Command
-from masonitedolphinido import Dolphinido
+from masonitedolphinido.dolphinido import Dolphinido
 from masonitedolphinido.helpers import output
 
 class RecogMicCommand(Command):

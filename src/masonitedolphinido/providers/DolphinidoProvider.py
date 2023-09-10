@@ -1,7 +1,7 @@
 from masonite.packages import PackageProvider
 from masonitedolphinido.commands import *
 
-class MasoniteDolphinidoProvider(PackageProvider):
+class DolphinidoProvider(PackageProvider):
 
     def configure(self):
         self.root("masonitedolphinido")\

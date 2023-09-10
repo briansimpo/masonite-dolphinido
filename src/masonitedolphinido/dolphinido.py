@@ -2,12 +2,12 @@ import pickle
 from pyaudioreader.audiofile import AudioFile
 from pysdrradio.radio import Radio
 from tinytag import TinyTag
-from dolphinido import settings as config
-from dolphinido.models import Audio, AudioFingerprint
-from dolphinido.fingerprint import Fingerprint
-from dolphinido.audiometa import Audiometa
-from dolphinido.exceptions import AudioDuplicate
-from dolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
+from masonitedolphinido import settings as config
+from masonitedolphinido.models import Audio, AudioFingerprint
+from masonitedolphinido.fingerprint import Fingerprint
+from masonitedolphinido.audiometa import Audiometa
+from masonitedolphinido.exceptions import AudioDuplicate
+from masonitedolphinido.recognition import AudioRecognizer, FileRecognizer, MicrophoneRecognizer
 
 class Dolphinido:
 
