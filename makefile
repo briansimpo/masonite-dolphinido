@@ -9,4 +9,4 @@ publish:
 	pip install --upgrade twine
 	python -m build
 	twine upload dist/*
-	rm -fr build dist src/masonitedolphinido.egg-info
+	rm -fr build dist src/masonite_dolphinido.egg-info
