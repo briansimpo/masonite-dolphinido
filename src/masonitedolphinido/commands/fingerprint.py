@@ -3,7 +3,7 @@ from masonitedolphinido.dolphinido import Dolphinido
 
 class Fingerprint(Command):
     """
-    The command generates audio fingerprints of the given audio file. It accepts mp3 file only
+    Generates audio fingerprints of the given audio file. It accepts mp3 file only
 
     dolphinido:fingerprint
         {audiofile : The absolute file path of the audio file to be fingerprinted. }

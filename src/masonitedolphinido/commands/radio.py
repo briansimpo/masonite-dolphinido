@@ -3,7 +3,7 @@ from masonitedolphinido.dolphinido import Dolphinido
 
 class Radio(Command):
     """
-    The command plays an fm radio station using RTL-SDR dongle.
+    Plays an fm radio station using RTL-SDR dongle.
 
     dolphinido:radio
         {station : The radio station frequency. }

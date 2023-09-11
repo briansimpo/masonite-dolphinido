@@ -4,7 +4,7 @@ from masonitedolphinido.helpers import output
 
 class RecogFile(Command):
     """
-    The command recognizes audio from audio file.
+    Recognizes audio from audio file.
 
     dolphinido:recog-file
         {audiofile : The absolute file path of the audio file to be recognized. }

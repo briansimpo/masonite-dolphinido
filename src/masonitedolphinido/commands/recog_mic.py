@@ -4,7 +4,7 @@ from masonitedolphinido.helpers import output
 
 class RecogMic(Command):
     """
-    The command recognizes audio from microphone device.
+    Recognizes audio from microphone device.
 
     dolphinido:recog-mic
         {duration : The number of seconds to record audio using microphone device. }

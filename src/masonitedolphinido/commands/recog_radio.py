@@ -5,7 +5,7 @@ import time
 
 class RecogRadio(Command):
     """
-    The command recognizes audio from radio station.
+    Recognizes audio from radio station.
 
     dolphinido:recog-radio
         {station : The radio station frequency to track and monitor. }
