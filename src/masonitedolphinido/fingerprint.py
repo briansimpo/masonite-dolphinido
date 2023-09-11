@@ -5,7 +5,7 @@ from typing import List
 from scipy.ndimage import maximum_filter
 from scipy.ndimage import (generate_binary_structure, iterate_structure, binary_erosion)
 from operator import itemgetter
-from dolphinido import settings as config
+from masonitedolphinido import settings as config
 
 class Fingerprint:
     

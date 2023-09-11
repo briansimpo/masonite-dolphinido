@@ -1,5 +1,9 @@
 from masonite.packages import PackageProvider
-from masonitedolphinido.commands import *
+from masonitedolphinido.commands.fingerprint import Fingerprint
+from masonitedolphinido.commands.radio import Radio
+from masonitedolphinido.commands.recog_file import RecogFile
+from masonitedolphinido.commands.recog_mic import RecogMic
+from masonitedolphinido.commands.recog_radio import RecogRadio
 
 class DolphinidoProvider(PackageProvider):
 
@@ -14,11 +18,11 @@ class DolphinidoProvider(PackageProvider):
     
     def register(self):
         self.application.make('commands')\
-        .add(FingerprintCommand())\
-        .add(RadioCommand())\
-        .add(RecogFileCommand())\
-        .add(RecogMicCommand())\
-        .add(RecogRadioCommand())
+        .add(Fingerprint())\
+        .add(Radio())\
+        .add(RecogFile())\
+        .add(RecogMic())\
+        .add(RecogRadio())
     
     def boot(self):
         pass

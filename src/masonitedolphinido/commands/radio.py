@@ -1,7 +1,7 @@
 from masonite.commands import Command
 from masonitedolphinido.dolphinido import Dolphinido
 
-class RadioCommand(Command):
+class Radio(Command):
     """
     The command plays an fm radio station using RTL-SDR dongle.
 

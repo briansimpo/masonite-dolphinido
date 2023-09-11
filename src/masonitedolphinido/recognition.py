@@ -1,7 +1,7 @@
 from pyaudioreader.audiofile import AudioFile
 from pyaudioreader.microphone import Microphone
-from dolphinido.models import Audio
-from dolphinido import settings as config
+from masonitedolphinido.models import Audio
+from masonitedolphinido import settings as config
 
 class AudioMatch:
 

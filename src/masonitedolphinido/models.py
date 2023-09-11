@@ -1,6 +1,6 @@
 from masoniteorm.models import Model
 from masoniteorm.scopes import UUIDPrimaryKeyMixin
-from dolphinido.helpers import grouper
+from masonitedolphinido.helpers import grouper
 
 
 class Audio(Model, UUIDPrimaryKeyMixin):

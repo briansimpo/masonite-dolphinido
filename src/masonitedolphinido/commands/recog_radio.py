@@ -3,7 +3,7 @@ from masonitedolphinido.dolphinido import Dolphinido
 from masonitedolphinido.helpers import output
 import time
 
-class RecogRadioCommand(Command):
+class RecogRadio(Command):
     """
     The command recognizes audio from radio station.
 
@@ -25,12 +25,12 @@ class RecogRadioCommand(Command):
         try:
             if option:
                 while True: 
-                    samples = radio.capture_samples()
+                    samples = radio.capture()
                     match = self.dolphinido.recognize_audio(samples)	
                     output(match)
                     time.sleep(10)
             else:
-                samples = radio.capture_samples()
+                samples = radio.capture()
                 match = self.dolphinido.recognize_audio(samples)
                 output(match)	
         except Exception as err:

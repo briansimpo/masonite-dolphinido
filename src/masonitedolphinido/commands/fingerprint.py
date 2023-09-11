@@ -1,7 +1,7 @@
 from masonite.commands import Command
 from masonitedolphinido.dolphinido import Dolphinido
 
-class FingerprintCommand(Command):
+class Fingerprint(Command):
     """
     The command generates audio fingerprints of the given audio file. It accepts mp3 file only
 

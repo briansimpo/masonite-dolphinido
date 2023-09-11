@@ -2,7 +2,7 @@ from masonite.commands import Command
 from masonitedolphinido.dolphinido import Dolphinido
 from masonitedolphinido.helpers import output
 
-class RecogMicCommand(Command):
+class RecogMic(Command):
     """
     The command recognizes audio from microphone device.
 

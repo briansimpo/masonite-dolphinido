@@ -2,7 +2,7 @@ from masonite.commands import Command
 from masonitedolphinido.dolphinido import Dolphinido
 from masonitedolphinido.helpers import output
 
-class RecogFileCommand(Command):
+class RecogFile(Command):
     """
     The command recognizes audio from audio file.
 
