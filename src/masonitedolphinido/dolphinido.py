@@ -93,6 +93,14 @@ class Dolphinido:
         audio.metadata = audiotag
         return audio
     
+    def audio_exists(self, audio_file):
+        hash = AudioFile.get_hash(audio_file)
+        audio = self.audios.get_by_hash(hash)
+        if audio:
+            return True
+        else:
+            return False
+	
     def __encode_audio_tag(self, audiotag: TinyTag):
         audiometa = Audiometa(
             title=audiotag.title,
