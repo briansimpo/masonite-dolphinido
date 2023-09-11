@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "masonite-dolphinido"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Brian Simpokolwe", email="briansimpokolwe@gmail.com" },
 ]
